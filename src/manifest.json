@@ -1,0 +1,12 @@
+{
+    "name": "chrome-extension-demo",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "Chrome Extension demo",
+    "content_scripts": [{
+        "matches": ["https://github.com/*/*/pull/*"],
+        "js": [
+        "content.js"
+        ]
+    }]
+}

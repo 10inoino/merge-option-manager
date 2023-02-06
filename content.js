@@ -1,3 +1,7 @@
+chrome.storage.local.get('Alertmsg', function (items) {
+    alert(items.Alertmsg);
+});
+
 const observer = new MutationObserver((mutated) => {
     document.querySelector('.merge-message .select-menu-button').click()
     document.querySelector('.merge-message button[value="merge"]').click()

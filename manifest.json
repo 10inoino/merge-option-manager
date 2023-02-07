@@ -9,8 +9,17 @@
             "content.js"
         ]
     }],
-    "options_ui": {
-        "page": "options.html"
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "acid-32.png"
     },
-    "permissions": [ "storage" ]
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    },
+    "permissions": [
+        "storage",
+        "webNavigation",
+        "tabs"
+    ]
 }

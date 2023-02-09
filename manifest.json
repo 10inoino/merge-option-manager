@@ -3,12 +3,12 @@
     "version": "1.0.0",
     "manifest_version": 2,
     "description": "Chrome Extension demo",
-    "content_scripts": [{
-        "matches": ["https://github.com/*/*/pull/*"],
-        "js": [
+    "background": {
+        "scripts": [
             "content.js"
-        ]
-    }],
+        ],
+        "persistent": false
+      },
     "options_ui": {
         "page": "options.html",
         "chrome_style": true
@@ -17,5 +17,5 @@
         "default_title": "merge-option-manager",
         "default_popup": "popup.html"
     },
-    "permissions": ["tabs","storage"]
+    "permissions": ["tabs","storage","https://github.com/*"]
 }

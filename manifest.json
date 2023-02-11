@@ -1,21 +1,10 @@
 {
     "name": "chrome-extension-demo",
     "version": "1.0.0",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "description": "Chrome Extension demo",
     "background": {
-        "scripts": [
-            "content.js"
-        ],
-        "persistent": false
-      },
-    "options_ui": {
-        "page": "options.html",
-        "chrome_style": true
+        "service_worker": "content.js"
     },
-    "browser_action": {
-        "default_title": "merge-option-manager",
-        "default_popup": "popup.html"
-    },
-    "permissions": ["tabs","storage","https://github.com/*"]
+    "permissions": ["tabs","storage"]
 }

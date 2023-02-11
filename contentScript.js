@@ -1,16 +1,21 @@
-let changed = false
-const observer = new MutationObserver((mutated) => {
-    if (!changed) {
-        document.querySelector('.merge-message .select-menu-button').click()
-        document.querySelector('.merge-message button[value="merge"]').click()
-        changed = true
-    }
-});
-const elem = document.getElementsByClassName('discussion-timeline-actions')[0];
+console.log("content");
 
-document.addEventListener("DOMContentLoaded", observer.observe(elem, {
+let changed = false;
+const observer = new MutationObserver((mutated) => {
+  if (!changed) {
+    document.querySelector(".merge-message .select-menu-button").click();
+    document.querySelector('.merge-message button[value="rebase"]').click();
+    changed = true;
+  }
+});
+const elem = document.getElementsByClassName("discussion-timeline-actions")[0];
+
+document.addEventListener(
+  "DOMContentLoaded",
+  observer.observe(elem, {
     attributes: true,
-    attributeFilter: ['svg'],
+    attributeFilter: ["svg"],
     childList: true,
-    subtree: true
-}));
+    subtree: true,
+  })
+);

@@ -6,5 +6,10 @@
     "background": {
         "service_worker": "content.js"
     },
-    "permissions": ["tabs","storage"]
+    "host_permissions": ["*://*/*"],
+    "permissions": [
+        "scripting",
+        "storage",
+        "activeTab"
+    ]
 }

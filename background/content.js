@@ -1,8 +1,6 @@
-let observed = false;
-
 chrome.tabs.onUpdated.addListener(function (tabId, info, tab) {
   const regex = /^https:\/\/github\.com\/.+\/.+\/pull\/\d+$/g;
-  if (info.status === "complete" && regex.test(tab.url) && !observed) {
+  if (info.status === "complete" && regex.test(tab.url)) {
     chrome.scripting
       .executeScript({
         target: { tabId: tabId },
@@ -18,7 +16,6 @@ const changeMergeOpriion = () => {
     // document.querySelector('.merge-message button[value="rebase"]').click();
     // document.querySelector('.merge-message button[value="merge"]').click();
     observer.disconnect();
-    observed = false;
   });
 
   var elem = document.getElementsByClassName("discussion-timeline-actions")[0];

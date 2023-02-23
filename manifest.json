@@ -4,7 +4,10 @@
     "manifest_version": 3,
     "description": "Chrome Extension demo",
     "background": {
-        "service_worker": "content.js"
+        "service_worker": "background/content.js"
+    },
+    "action": {
+        "default_popup": "popup/index.html"
     },
     "host_permissions": ["*://*/*"],
     "permissions": [

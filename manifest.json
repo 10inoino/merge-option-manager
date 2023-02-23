@@ -1,18 +1,14 @@
 {
-    "name": "chrome-extension-demo",
-    "version": "1.0.0",
-    "manifest_version": 3,
-    "description": "Chrome Extension demo",
-    "background": {
-        "service_worker": "background/content.js"
-    },
-    "action": {
-        "default_popup": "popup/index.html"
-    },
-    "host_permissions": ["*://*/*"],
-    "permissions": [
-        "scripting",
-        "storage",
-        "activeTab"
-    ]
+  "name": "chrome-extension-demo",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Chrome Extension demo",
+  "background": {
+    "service_worker": "background/index.js"
+  },
+  "action": {
+    "default_popup": "popup/index.html"
+  },
+  "host_permissions": ["*://*/*"],
+  "permissions": ["scripting", "storage", "activeTab"]
 }

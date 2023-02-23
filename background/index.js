@@ -1,3 +1,4 @@
+// TODO:typescrptが使えるようになったら、ファイルごと削除する
 chrome.tabs.onUpdated.addListener(function (tabId, info, tab) {
   const regex = /^https:\/\/github\.com\/.+\/.+\/pull\/\d+$/g;
   if (info.status === "complete" && regex.test(tab.url)) {

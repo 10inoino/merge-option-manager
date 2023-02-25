@@ -7,7 +7,7 @@
     "service_worker": "background/index.js"
   },
   "action": {
-    "default_popup": "popup/index.html"
+    "default_popup": "popup/build/index.html"
   },
   "host_permissions": ["*://*/*"],
   "permissions": ["scripting", "storage", "activeTab"]

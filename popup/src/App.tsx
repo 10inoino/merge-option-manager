@@ -1,11 +1,12 @@
-import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 import './App.css';
+import { MergeOptionView } from './mergeOptionView';
 
 function App() {
   return (
-    <div>
-      <p>Hello React.</p>
-    </div>
+    <ChakraProvider>
+      <MergeOptionView />
+    </ChakraProvider>
   );
 }
 

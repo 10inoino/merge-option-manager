@@ -10,12 +10,16 @@ chrome.tabs.onUpdated.addListener(function (tabId, info, tab) {
 
 const TmpchangeMergeOpriion = () => {
   var observer = new MutationObserver(() => {
-    const selectButton = document.querySelector('.merge-message .select-menu-button') as HTMLElement
-    const mergeOption = document.querySelector('.merge-message button[value="squash"]') as HTMLElement
+    const selectButton = document.querySelector(
+      '.merge-message .select-menu-button'
+    ) as HTMLElement;
+    const mergeOption = document.querySelector(
+      '.merge-message button[value="squash"]'
+    ) as HTMLElement;
     // const mergeOption = document.querySelector('.merge-message button[value="rebase"]') as HTMLElement
     // const mergeOption = document.querySelector('.merge-message button[value="merge"]') as HTMLElement
-    selectButton.click()
-    mergeOption.click()
+    selectButton.click();
+    mergeOption.click();
     observer.disconnect();
   });
 

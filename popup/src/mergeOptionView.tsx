@@ -16,7 +16,7 @@ import {
   Tr,
   useToast,
 } from '@chakra-ui/react';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 export const MergeOptionView = () => {
   const toast = useToast();
@@ -62,17 +62,17 @@ export const MergeOptionView = () => {
     });
   };
 
-  const validateOwner = (owner: string) => {
+  const validateOwner = useCallback((owner: string) => {
     return owner.length > 0;
-  };
+  }, []);
 
-  const validateRepo = (repo: string) => {
+  const validateRepo = useCallback((repo: string) => {
     return repo.length > 0;
-  };
+  }, []);
 
-  const validateBranch = (branch: string) => {
+  const validateBranch = useCallback((branch: string) => {
     return branch.length > 0;
-  };
+  }, []);
 
   const validSettings = useMemo(() => {
     if (mergeOptionSettings.length === 0) return false;
@@ -85,35 +85,34 @@ export const MergeOptionView = () => {
     });
   }, [mergeOptionSettings, validateOwner, validateRepo, validateBranch]);
 
-  // useEffect(() => {
-  //   chrome.storage.sync.get(['mergeOptionSettings'], (result) => {
-  //     console.log('Settings retrieved', result);
-  //     if (result.mergeOptionSettings && result.mergeOptionSettings.length > 0) {
-  //       setMergeOptionSettings(result.mergeOptionSettings);
-  //     } else {
-  //       setMergeOptionSettings([
-  //         {
-  //           order: 1,
-  //           owner: '*',
-  //           repo: '*',
-  //           branch: '*',
-  //           mergeOption: 'NONE',
-  //         },
-  //       ]);
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    chrome.storage.sync.get(['mergeOptionSettings'], (result) => {
+      if (result.mergeOptionSettings && result.mergeOptionSettings.length > 0) {
+        setMergeOptionSettings(result.mergeOptionSettings);
+      } else {
+        setMergeOptionSettings([
+          {
+            order: 1,
+            owner: '*',
+            repo: '*',
+            branch: '*',
+            mergeOption: 'NONE',
+          },
+        ]);
+      }
+    });
+  }, []);
 
-  // const saveSettings = () => {
-  //   chrome.storage.sync.set({ mergeOptionSettings: mergeOptionSettings }, () => {
-  //     toast({
-  //       title: 'Settings saved.',
-  //       status: 'success',
-  //       duration: 3000,
-  //       isClosable: true,
-  //     });
-  //   });
-  // };
+  const saveSettings = () => {
+    chrome.storage.sync.set({ mergeOptionSettings: mergeOptionSettings }, () => {
+      toast({
+        title: 'Settings saved.',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+    });
+  };
 
   const updateRepo = (index: number, repo: string) => {
     setMergeOptionSettings((prevMergeOptionSettings) => {
@@ -309,8 +308,8 @@ export const MergeOptionView = () => {
               width="100%"
               colorScheme="linkedin"
               onClick={() => {
-                // saveSettings();
-                console.log(mergeOptionSettings);
+                saveSettings();
+                // console.log(mergeOptionSettings);
               }}
               isDisabled={!validSettings}
             >

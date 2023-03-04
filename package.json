@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "fmt": "prettier --write **/*.{js,json,html,tsx,ts}"
+    "fmt": "prettier --write **/*.{js,json,html,tsx,ts}",
+    "build:popup": "cd popup && yarn build",
+    "build:background": "yarn tsc background/index.ts",
+    "build": "yarn build:popup && yarn build:background"
   },
   "devDependencies": {
     "prettier": "2.8.4",
@@ -8,6 +11,8 @@
   },
   "dependencies": {
     "@types/chrome": "^0.0.217",
+    "@types/micromatch": "^4.0.2",
+    "micromatch": "^4.0.5",
     "tsc": "^2.0.4"
   }
 }

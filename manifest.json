@@ -1,13 +1,17 @@
 {
-  "name": "chrome-extension-demo",
+  "name": "Merge Option Manager",
   "version": "1.0.0",
   "manifest_version": 3,
-  "description": "Chrome Extension demo",
+  "description": "Merge Option Manager",
   "background": {
     "service_worker": "background/index.js"
   },
   "action": {
-    "default_popup": "popup/build/index.html"
+    "default_popup": "popup/build/index.html",
+    "default_icon": "32.png"
+  },
+  "icons": {
+    "128": "128.png"
   },
   "host_permissions": ["*://*/*"],
   "permissions": ["scripting", "storage", "activeTab"]
